@@ -47,6 +47,16 @@
       transform: scale(1.05);
     }
 
+    footer {
+      margin-top: auto;
+      width: 100%;
+      background-color: #fce4ec;
+      padding: 15px 0;
+      font-size: 0.9em;
+      color: #555;
+      border-top: 1px solid #e0e0e0;
+    }
+
     @media (max-width: 600px) {
       h1 {
         font-size: 2em;
@@ -61,6 +71,11 @@
         font-size: 1em;
         padding: 12px 20px;
       }
+
+      footer {
+        font-size: 0.8em;
+        padding: 10px 0;
+      }
     }
   </style>
 </head>
@@ -68,6 +83,10 @@
   <h1>در حال ورود به سایت</h1>
   <p>شناسایی فروشگاه های نزدیک به شما...</p>
   <button onclick="getLocation()">ورود به وینا اکسسوری</button>
+
+  <footer>
+    © تمامی حقوق محفوظ است برای وینا اکسسوری | طراحی شده با ❤️
+  </footer>
 
   <script>
     function getLocation() {
